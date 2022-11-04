@@ -32,3 +32,14 @@ button {
     border-radius: 50px;
     width: 60%;
   }
+
+
+  @media only screen and (max-device-width: 420px){
+    *{
+        font-size: 50px;
+    }
+    .login-container{
+        height: 10%;
+        width: auto;
+    }
+  }
