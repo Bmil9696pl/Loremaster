@@ -38,8 +38,14 @@ button {
     *{
         font-size: 50px;
     }
-    .login-container{
-        height: 10%;
-        width: auto;
+    .login-container {
+        height: 19%;
+        width: 80%;
+      }
+    .logo, .Loremaster{
+        width: 100%;
+    }
+    .login, .password{
+        text-align: center;
     }
   }
