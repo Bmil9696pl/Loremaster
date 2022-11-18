@@ -2,19 +2,29 @@ body {
     margin: 0;
 }
 
+@font-face {
+  font-family: Laila;
+  src: url(../fonts/Laila-Regular.ttf);
+}
+
 .login-container{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 15%;
-    height: 15%;
+    width: 20%;
+    height: 21%;
+
+    font-family: Laila;
     
     background: #A986A1 0% 0% no-repeat padding-box;
     box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 20px;
 }
 
+.text {
+  font-family: Laila;
+}
 
 .container {
     width: 100vw;
@@ -27,12 +37,49 @@ body {
     align-items: center;
 }
 
-button {
-    background: #FFE6FF;
-    border-radius: 50px;
-    width: 60%;
+.select{
+    width: 40%;
+    height: 21%;
+}
+
+.stext{
+  font-family: Laila;
+  font-size: 16px;
+  font-size: 6vw;
+  color: #FFE6FF;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    height: 21%;
+
+    background: #A986A1 0% 0% no-repeat padding-box;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
   }
 
+  button {
+    background: #FFE6FF;
+    border-radius: 50px;
+    width: 100%;
+    height: 100%;
+    font-family: 'Laila';
+    font-style: normal;
+    font-weight: 400;
+    color: #000000;
+  }
+
+  button + button {
+    margin-top: 3px;
+  }
+
+  .password + button {
+    margin-top: 6px;
+  }
 
   @media only screen and (max-device-width: 420px){
     *{
