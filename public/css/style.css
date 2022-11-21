@@ -1,3 +1,12 @@
+/*
+git status
+git add .
+git commit -m "messege"
+git push
+*/
+
+
+
 body {
     margin: 0;
 }
@@ -81,6 +90,65 @@ body {
     margin-top: 6px;
   }
 
+  .select-container {
+    background: #A986A1;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 14vw;
+    font-family: Laila;
+  }
+
+  .region-button{
+    display: flex;
+    flex-direction: row;
+  }
+
+  .region-button > img {
+    width: 3vw;
+  }
+
+  .region-button > button {
+    width: 8vw;
+  }
+
+  .region-button + .region-button {
+    margin-top: 3px;
+  }
+
+  .question-container {
+    background: #A986A1;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    height: 23vh;
+  }
+
+  .answers-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 2em;
+    padding-top: 2em;
+    width: 50vw;
+  }
+
+  .answer {
+    background: #FFE6FF;
+    border-radius: 15px;
+    height: 11vw;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   @media only screen and (max-device-width: 420px){
     *{
         font-size: 50px;
@@ -94,5 +162,29 @@ body {
     }
     .login, .password{
         text-align: center;
+    }
+    .menu {
+      width: 46vw;
+    }
+    .stext{
+      font-size: 15vw;
+    }
+    .select-container{
+      width: 70%;
+    }
+    .region-button{
+      width: 100%;
+    }
+    .region-button>img{
+      width: 9vw;
+    }
+    .region-button>button{
+      width: 100%;
+    }
+    .question-container{
+      height: auto;
+    }
+    .answers-container{
+      grid-gap:0.5em;
     }
   }
