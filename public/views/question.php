@@ -13,21 +13,21 @@
                 Question 1
             </p>
             <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sagittis, nisi sit amet mattis cursus, ligula dui dictum erat, nec vestibulum sapien eros vel erat. In hac habitasse platea dictumst.
+                <?= $question->getQuestion() ?>
             </p>
         </div>
         <div class = "answers-container">
             <div class = "answer">
-                <p>Answer 1</p>
+                <p><?= $question->getAnswer() ?></p>
             </div>
             <div class = "answer">
-                <p>Answer 2</p>
+                <p><?= $question->getAnswer() ?></p>
             </div>
             <div class = "answer">
-                <p>Answer 3</p>
+                <p><?= $question->getAnswer() ?></p>
             </div>
             <div class = "answer">
-                <p>Answer 4</p>
+                <p><?= $question->getAnswer() ?></p>
             </div>
         </div>
     </div>
