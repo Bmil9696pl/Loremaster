@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <head>
     <link rel="stylesheet" type="text/css" href="public/css/style.css">
-    <title>REGIONSELECT</title>
+    <title>QUESTION</title>
 </head>
 <body>
     <div class="container">

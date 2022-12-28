@@ -6,7 +6,6 @@ git push
 */
 
 
-
 body {
     margin: 0;
 }
@@ -51,6 +50,7 @@ body {
     height: 21%;
 }
 
+
 .stext{
   font-family: Laila;
   font-size: 16px;
@@ -69,7 +69,7 @@ body {
     background: #A986A1 0% 0% no-repeat padding-box;
     box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 20px;
-  }
+}
 
   button {
     background: #FFE6FF;
@@ -81,6 +81,7 @@ body {
     font-weight: 400;
     color: #000000;
   }
+
 
   button + button {
     margin-top: 3px;
@@ -139,23 +140,37 @@ body {
     width: 50vw;
   }
 
-  .answer {
-    background: #FFE6FF;
-    border-radius: 15px;
-    height: 11vw;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+.answer {
+  background: #FFE6FF;
+  border-radius: 15px;
+  height: 11vw;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.leaderboard-user {
+  display: flex;
+  flex-direction: row;
+  background: #FFE6FF;
+  border-radius: 50px;
+  width: 20vw;
+  justify-content: space-evenly;
+}
+
+.leaderboard-user + .leaderboard-user {
+  margin-top: 3px;
+}
+
 
   @media only screen and (max-device-width: 420px){
     *{
         font-size: 50px;
     }
-    .login-container {
-        height: 19%;
-        width: 80%;
+      .login-container {
+          height: 24%;
+          width: 80%;
       }
     .logo, .Loremaster{
         width: 100%;
@@ -163,15 +178,15 @@ body {
     .login, .password{
         text-align: center;
     }
-    .menu {
-      width: 46vw;
-    }
+      .menu {
+          width: 80vw;
+      }
     .stext{
       font-size: 15vw;
     }
-    .select-container{
-      width: 70%;
-    }
+      .select-container {
+          width: 80vw;
+      }
     .region-button{
       width: 100%;
     }
@@ -184,7 +199,13 @@ body {
     .question-container{
       height: auto;
     }
-    .answers-container{
-      grid-gap:0.5em;
-    }
+      .answers-container {
+          grid-gap: 0.5em;
+          width: 80vw;
+          height: fit-content;
+      }
+      .question-container {
+          height: fit-content;
+          width: 80vw;
+      }
   }

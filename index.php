@@ -11,6 +11,7 @@ Routing::get('login', 'DefaultController');
 Routing::get('homescreen', 'DefaultController');
 Routing::get('question', 'DefaultController');
 Routing::get('regionselect', 'DefaultController');
+Routing::get('leaderboard', 'DefaultController');
 Routing::post('login', 'SecurityController');
 
 Routing::run($path);

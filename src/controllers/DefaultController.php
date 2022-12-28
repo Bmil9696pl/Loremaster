@@ -15,6 +15,9 @@ class DefaultController extends AppController {
     public function regionselect(){
         $this->render('regionselect');
     }
+    public function leaderboard(){
+        $this->render('leaderboard');
+    }
 }
 
 ?>
