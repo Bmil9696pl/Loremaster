@@ -23,6 +23,9 @@ class DefaultController extends AppController {
     public function leaderboard(){
         $this->render('leaderboard');
     }
+    public function register(){
+        $this->render('register');
+    }
 }
 
 ?>

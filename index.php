@@ -13,6 +13,8 @@ Routing::get('question', 'DefaultController');
 Routing::get('regionselect', 'DefaultController');
 Routing::get('leaderboard', 'DefaultController');
 Routing::post('login', 'SecurityController');
+Routing::post("register", 'SecurityController');
+Routing::post("registerNewUser", "SecurityController");
 
 Routing::run($path);
 ?>

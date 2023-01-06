@@ -23,13 +23,14 @@
                     }
                     ?>
                 </div>
-                <p class="text" style="margin-block: auto;"> Login </p>
-                <input class="login" name="login" type="text" placeholder="jan.kowalski" style="background: #B59BAF;border: 1px solid #000000;border-radius: 50px;width: 100%;height: 120%;">
+                <p class="text" style="margin-block: auto;"> email </p>
+                <input class="login" name="login" type="text" placeholder="jan.kowalski@gmail.com" style="background: #B59BAF;border: 1px solid #000000;border-radius: 50px;width: 100%;height: 120%;">
                 <p class="text" style="margin-block: auto;margin-top: 3px;">Password</p>
                 <input class="password" name="password" type="password" placeholder="*********" style="background: #B59BAF;border: 1px solid #000000;border-radius: 50px;width: 100%;height: 120%;">
                 <button type="submit">Login</button>
             </form>
         </div>
+        <form action = "register" method = "POST"><button class="register-button" type="submit">Register</button></form>
     </div>
 </body>
 

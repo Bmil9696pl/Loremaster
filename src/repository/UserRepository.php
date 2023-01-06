@@ -12,6 +12,8 @@ class UserRepository extends Repository
         $stmt->bindParam(":email", $email, PDO::PARAM_STR);
         $stmt->execute();
 
+
+
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if($user == false){
@@ -22,6 +24,22 @@ class UserRepository extends Repository
             $user['email'],
             $user['password'],
             $user['username']
+        );
+    }
+
+    public function addUser(string $email, string $username, string $password){
+        $date = new DateTime();
+        $stmt = $this->database->connect()->prepare('
+        INSERT INTO users (username, email, password, created_at)
+        VALUES (?,?,?,?)
+        ');
+        $stmt->execute(
+            [
+                $username,
+                $email,
+                password_hash($password, PASSWORD_BCRYPT),
+                $date->format("Y-m-d")
+            ]
         );
     }
 }
