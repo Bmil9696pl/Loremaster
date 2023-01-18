@@ -30,6 +30,7 @@ class SecurityController extends AppController
             return $this->render("login", ["messages" => ["Wrong password"]]);
         }
 
+        setcookie("user", $user->getId(), time()+360, "/");
         //return $this->render("homescreen");
         $url = "http://$_SERVER[HTTP_HOST]";
         header("Location: {$url}/homescreen");

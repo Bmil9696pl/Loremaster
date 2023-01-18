@@ -86,7 +86,7 @@ body {
     border-radius: 20px;
 }
 
-  button {
+a{
     background: #FFE6FF;
     border-radius: 50px;
     width: 100%;
@@ -95,7 +95,24 @@ body {
     font-style: normal;
     font-weight: 400;
     color: #000000;
-  }
+    text-align: center;
+    text-decoration-line: none;
+}
+
+a + a{
+    margin-top: 3px;
+}
+
+button {
+    background: #FFE6FF;
+    border-radius: 50px;
+    width: 100%;
+    height: 100%;
+    font-family: 'Laila';
+    font-style: normal;
+    font-weight: 400;
+    color: #000000;
+}
 
 
   button + button {

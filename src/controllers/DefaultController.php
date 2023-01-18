@@ -3,8 +3,13 @@
 //use modelsquestion\Question;
 
 require_once 'AppController.php';
+require_once __DIR__.'/../repository/Repository.php';
 require_once __DIR__.'/../models/Question.php';
 require_once __DIR__.'/../models/Session.php';
+require_once __DIR__.'/../repository/QuestionRepository.php';
+require_once __DIR__.'/../repository/HighscoreRepository.php';
+
+
 
 
 class DefaultController extends AppController {
@@ -15,22 +20,38 @@ class DefaultController extends AppController {
     public function homescreen(){
         $this->render('homescreen');
     }
+
+    public function compareTwoUserScores($a, $b){
+        return strcmp($a->getScore(), $b->getScore());
+    }
+
     public function question(){
         Session::getInstance();
-        $question = new Question();
-        $tquestion = $question->getQuestion();
-        $answer1 = $question->getAnswer();
-        $answer2 = $question->getAnswer();
-        $answer3 = $question->getAnswer();
-        $answer4 = $question->getAnswer();
+        $questionRepository = new QuestionRepository();
+        $question = $questionRepository->getQuestion($_COOKIE['regionid'], $_SESSION['used']);
+        if($question == null){
+            $this->render("homescreen", ["messages" => ["Ten region nie został jeszcze dodany!"]]);
+        }
+        $_SESSION['used'][] = $question[1];
+        $tquestion = $question[0]->getQuestion();
+        $answer1 = $question[0]->getAnswer();
+        $answer2 = $question[0]->getAnswer();
+        $answer3 = $question[0]->getAnswer();
+        $answer4 = $question[0]->getAnswer();
+        //$answer4[0] = $temp;
+        $answer4[0] = 'chujchujchujchuj';
         $this->render('question', ["question" => $tquestion, "answer1"=>$answer1,
-            "answer2"=>$answer2, "answer3"=>$answer3, "answer4"=>$answer4, "score"=>0]);
+            "answer2"=>$answer2, "answer3"=>$answer3, "answer4"=>$answer4, "score"=>0, "health"=>3]);
     }
     public function regionselect(){
         $this->render('regionselect');
     }
     public function leaderboard(){
-        $this->render('leaderboard');
+        $highscoreRepository = new HighscoreRepository();
+        $userScores = $highscoreRepository->getAllScores();
+        usort($userScores, array($this, "compareTwoUserScores"));
+        $userScores = array_reverse($userScores);
+        $this->render('leaderboard', ['userScores'=>$userScores]);
     }
     public function register(){
         $this->render('register');

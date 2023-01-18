@@ -3,10 +3,17 @@
     <link rel="stylesheet" type="text/css" href="public/css/style.css">
     <title>QUESTION</title>
 </head>
+<?php
+$r_id = $id;
+echo $r_id;
+?>
 <body>
     <div class="container">
         <p>
             Score: <?= $score ?>
+        </p>
+        <p>
+            Health: <?= $health ?>
         </p>
         <div class = "question-container">
             <p>

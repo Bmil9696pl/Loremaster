@@ -17,6 +17,16 @@ class Question
             array("DDDDDDDDDDD", "Wrong"));
     }
 
+    public function setAll(string $question, string $right_answer, string $wrong_answer, string $wrong_answer2, string $wrong_answer3){
+        $this->question = $question;
+        $this->answers = array(
+            array($right_answer, "Right"),
+            array($wrong_answer, "Wrong"),
+            array($wrong_answer2, "Wrong"),
+            array($wrong_answer3, "Wrong")
+        );
+    }
+
     /**
      * @return mixed
      */
