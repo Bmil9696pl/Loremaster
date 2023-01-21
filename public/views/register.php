@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <head>
     <link rel="stylesheet" type="text/css" href="public/css/style.css">
+    <script type="text/javascript" src="./public/js/script.js" defer></script>
     <title>LOGIN PAGE</title>
 </head>
 <body>
@@ -24,7 +25,7 @@
                 ?>
             </div>
             <p class="text" style="margin-block: auto;"> email </p>
-            <input class="login" name="email" type="text" placeholder="jan.kowalski@gmail.com" style="background: #B59BAF;border: 1px solid #000000;border-radius: 50px;width: 100%;height: 120%;">
+            <input class="register-login" name="email" type="text" placeholder="jan.kowalski@gmail.com">
             <p class="text" style="margin-block: auto;"> Username </p>
             <input class="login" name="login" type="text" placeholder="jan.kowalski" style="background: #B59BAF;border: 1px solid #000000;border-radius: 50px;width: 100%;height: 120%;">
             <p class="text" style="margin-block: auto;margin-top: 3px;">Password</p>

@@ -2,8 +2,8 @@
 
 class UserScore
 {
-    private $username;
-    private $score;
+    public $username;
+    public $score;
 
     public function __construct($username, $score)
     {

@@ -8,9 +8,9 @@ class RegionselectController extends AppController
     public function regionselect(){
         $questionRepository = new QuestionRepository();
         session_start();
-        $_SESSION['used'] = array();
-        $_SESSION['score'] = 0;
-        $_SESSION['health'] = 3;
+        $_SESSION['used'. $_COOKIE['user']] = array();
+        $_SESSION['score'. $_COOKIE['user']] = 0;
+        $_SESSION['health'. $_COOKIE['user']] = 3;
         if(!$this->isPost()){
             return $this->render("regionselect");
         }
@@ -59,7 +59,7 @@ class RegionselectController extends AppController
      */
     public function renderQuestions(QuestionRepository $questionRepository)
     {
-        $question = $questionRepository->getQuestion($_COOKIE['regionid'], $_SESSION['used']);
+        $question = $questionRepository->getQuestion($_COOKIE['regionid'], $_SESSION['used'. $_COOKIE['user']]);
         if ($question == null) {
             $this->render("homescreen", ["messages" => ["Ten region nie został jeszcze dodany!"]]);
         }

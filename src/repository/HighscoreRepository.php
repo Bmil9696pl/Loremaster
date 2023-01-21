@@ -15,7 +15,7 @@ class HighscoreRepository extends Repository
                 if($highscore_ID['runeterra_highscore'] == null){
                     $stmt = $this->database->connect()->prepare('
                     insert into runeterra_highscore (score) values (?)');
-                    $stmt->execute([$_SESSION['score']]);
+                    $stmt->execute([$_SESSION['score'. $_COOKIE['user']]]);
                     $stmt = $this->database->connect()->prepare('
                     select id from runeterra_highscore order by id desc');
                     $stmt->execute();
@@ -31,7 +31,7 @@ class HighscoreRepository extends Repository
                     $stmt->bindParam(":id", $highscore_ID['runeterra_highscore'], PDO::PARAM_INT);
                     $stmt->execute();
                     $oldScore = $stmt->fetch(PDO::FETCH_ASSOC);
-                    if($_SESSION['score'] > $oldScore['score']){
+                    if($_SESSION['score'. $_COOKIE['user']] > $oldScore['score']){
                         $stmt = $this->database->connect()->prepare('
                         UPDATE runeterra_highscore set score = :score where id = :id');
                         $stmt->bindParam(":score", $score, PDO::PARAM_INT);
@@ -49,7 +49,7 @@ class HighscoreRepository extends Repository
                 if($highscore_ID['demacia_highscore'] == null){
                     $stmt = $this->database->connect()->prepare('
                     insert into demacia_highscore (score) values (?)');
-                    $stmt->execute([$_SESSION['score']]);
+                    $stmt->execute([$_SESSION['score'. $_COOKIE['user']]]);
                     $stmt = $this->database->connect()->prepare('
                     select id from demacia_highscore order by id desc');
                     $stmt->execute();
@@ -65,7 +65,7 @@ class HighscoreRepository extends Repository
                     $stmt->bindParam(":id", $highscore_ID['demacia_highscore'], PDO::PARAM_INT);
                     $stmt->execute();
                     $oldScore = $stmt->fetch(PDO::FETCH_ASSOC);
-                    if($_SESSION['score'] > $oldScore['score']){
+                    if($_SESSION['score'. $_COOKIE['user']] > $oldScore['score']){
                         $stmt = $this->database->connect()->prepare('
                         UPDATE demacia_highscore set score = :score where id = :id');
                         $stmt->bindParam(":score", $score, PDO::PARAM_INT);
@@ -90,9 +90,33 @@ class HighscoreRepository extends Repository
             $stmt->bindParam(":id", $user["runeterra_highscore"], PDO::PARAM_INT);
             $stmt->execute();
             $score = $stmt->fetch(PDO::FETCH_ASSOC);
-            $return[] = new UserScore($user["username"], $score["score"]);
+            if($score['score'] != null) {
+                $return[] = new UserScore($user["username"], $score["score"]);
+            }
         }
 
+        return $return;
+    }
+
+    public function getUserScoresByUsername($searchString){
+        $return = [];
+        $searchString = '%'.strtolower($searchString).'%';
+        $stmt = $this->database->connect()->prepare('
+            SELECT username, runeterra_highscore FROM users WHERE lower(username) like :search
+        ');
+        $stmt->bindParam(':search', $searchString, PDO::PARAM_STR);
+        $stmt->execute();
+        $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        foreach ($users as $user){
+            $stmt = $this->database->connect()->prepare('
+            select score from runeterra_highscore where id = :id');
+            $stmt->bindParam(":id", $user["runeterra_highscore"], PDO::PARAM_INT);
+            $stmt->execute();
+            $score = $stmt->fetch(PDO::FETCH_ASSOC);
+            if($score['score'] != null) {
+                $return[] = new UserScore($user["username"], $score["score"]);
+            }
+        }
         return $return;
     }
 }

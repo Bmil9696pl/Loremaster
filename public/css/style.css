@@ -201,6 +201,19 @@ button {
     height: 3vh;
 }
 
+.register-login{
+    background: #B59BAF;
+    border: 1px solid #000000;
+    border-radius: 50px;
+    width: 100%;
+    height: 120%;
+}
+
+.no-valid{
+    border: 3px solid red;
+    border-radius: 50px;
+}
+
 
   @media only screen and (max-device-width: 420px){
     *{

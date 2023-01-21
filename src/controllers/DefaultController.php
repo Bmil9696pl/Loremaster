@@ -28,7 +28,7 @@ class DefaultController extends AppController {
     public function question(){
         Session::getInstance();
         $questionRepository = new QuestionRepository();
-        $question = $questionRepository->getQuestion($_COOKIE['regionid'], $_SESSION['used']);
+        $question = $questionRepository->getQuestion($_COOKIE['regionid'], $_SESSION['used'. $_COOKIE['user']]);
         if($question == null){
             $this->render("homescreen", ["messages" => ["Ten region nie został jeszcze dodany!"]]);
         }
@@ -55,6 +55,20 @@ class DefaultController extends AppController {
     }
     public function register(){
         $this->render('register');
+    }
+
+    public function search(){
+        #TODO
+        $contentType = isset($_SERVER["CONTENT_TYPE"]) ? trim($_SERVER["CONTENT_TYPE"]) : '';
+
+        if($contentType === "application/json"){
+            $content = trim(file_get_contents('php://input'));
+            $decoded = json_decode($content, true);
+            $highscoreRepository = new HighscoreRepository();
+            header('Content-type: application/json');
+            http_response_code(200);
+            echo json_encode($highscoreRepository->getUserScoresByUsername($decoded['search']));
+        }
     }
 }
 

@@ -18,6 +18,7 @@ Routing::post("register", 'SecurityController');
 Routing::post("registerNewUser", "SecurityController");
 Routing::post("question", "QuizController");
 Routing::post("regionselect", "RegionselectController");
+Routing::post("search", "DefaultController");
 
 
 Routing::run($path);

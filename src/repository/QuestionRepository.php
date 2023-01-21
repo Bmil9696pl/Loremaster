@@ -31,7 +31,7 @@ class QuestionRepository extends Repository
             if($n_of_iterations == $loop_boundary){
                 return null;
             }
-        }while(in_array($question['id'], $_SESSION['used']));
+        }while(in_array($question['id'], $_SESSION['used'. $_COOKIE['user']]));
         if($question == null){
             return null;
         }
