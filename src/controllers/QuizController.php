@@ -1,7 +1,7 @@
 <?php
 
 require_once __DIR__.'/../models/Question.php';
-require_once __DIR__.'/../models/Session.php';
+//require_once __DIR__.'/../models/Session.php';
 require_once __DIR__.'/../repository/QuestionRepository.php';
 require_once __DIR__.'/../repository/HighscoreRepository.php';
 
