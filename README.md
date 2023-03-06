@@ -2,7 +2,13 @@
 > A fanmade quiz of League of Legends lore
 
 ## Table of contents
+[About Loremaster](#about-loremaster)
 
+[Technologies used](#technologies-used)
+
+[Features](#features)
+
+[Setup](#setup)
 ## About Loremaster
 Loremaster is a website wich tests your knowledge of Runeterras world. 
 You can test your knowledge and compare yourself to other players.
